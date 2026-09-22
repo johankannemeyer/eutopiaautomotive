@@ -2,11 +2,21 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    { "source": "/home", "destination": "/", "permanent": true },
+    { "source": "/index", "destination": "/", "permanent": true },
+    { "source": "/services", "destination": "/our-services", "permanent": true },
+    { "source": "/terms", "destination": "/terms-conditions", "permanent": true },
+    { "source": "/privacy", "destination": "/privacy-policy", "permanent": true }
+  ],
+  "rewrites": [
+    { "source": "/robots.txt", "has": [{ "type": "host", "value": "(?<sub>.*)\\.vercel\\.app" }], "destination": "/robots-preview.txt" },
+    { "source": "/robots.txt", "destination": "/robots-production.txt" }
+  ],
   "headers": [
     {
       "source": "/(.*)",
       "headers": [
-        { "key": "X-Robots-Tag", "value": "noindex, nofollow" },
         { "key": "X-Content-Type-Options", "value": "nosniff" },
         { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
         { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
@@ -14,8 +24,17 @@
       ]
     },
     {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "(?<sub>.*)\\.vercel\\.app" }],
+      "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }]
+    },
+    {
       "source": "/assets/(.*)",
       "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
+    },
+    {
+      "source": "/(llms.txt|pricing.md)",
+      "headers": [{ "key": "Content-Type", "value": "text/plain; charset=utf-8" }]
     }
   ]
 }

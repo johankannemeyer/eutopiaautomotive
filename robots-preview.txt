@@ -1,0 +1,3 @@
+# Preview deployment — not for indexing. The live site is https://www.eutopiaautomotive.co.za
+User-agent: *
+Disallow: /
