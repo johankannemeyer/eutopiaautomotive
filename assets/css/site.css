@@ -1083,6 +1083,92 @@ body[style*="overflow: hidden"] .floaters{display:none}
 .qb-success .btn{margin-top:10px}
 @media (max-width:820px){ .qb-success{padding:36px 26px} }
 
+/* =====================================================================
+   CLIENT REVISION — 22 Sep 2026
+   1. Black photo overlays raised to a consistent 70% minimum.
+   2. Champagne brought to full strength wherever it carries the brand.
+      On ivory, gold text uses --gold-text (#8A6A2C, 4.5:1) so it stays
+      readable; on dark, full --gold (#C6A972, 8.7:1).
+   ===================================================================== */
+
+/* ---------- 1. OVERLAYS: one treatment, never lighter than 70% ---------- */
+.hero .veil,
+.banner:not(.banner--light) .veil,
+.banner .pic-01 + .veil, .banner .pic-03 + .veil, .banner .pic-05 + .veil,
+.banner .pic-07 + .veil, .banner .pic-08 + .veil, .banner .pic-17 + .veil,
+.banner .pic-24 + .veil, .banner .pic-27 + .veil, .banner .pic-29 + .veil{
+  background:linear-gradient(180deg,
+    rgba(11,11,12,.74) 0%,
+    rgba(11,11,12,.70) 45%,
+    rgba(11,11,12,.84) 100%);
+}
+.quotes-band .veil{background:rgba(11,11,12,.70)}
+.tile .shade{background:rgba(11,11,12,.70)}
+.tile:hover .shade{background:rgba(11,11,12,.52)}
+
+/* ---------- 2. CHAMPAGNE AT FULL STRENGTH ---------- */
+/* Section dividers: the site's signature element — no longer half-faded */
+.divider .rule,
+.hero .divider .rule,
+.banner .divider .rule{background:var(--gold);opacity:1}
+.bg-obsidian .divider .rule,.on-dark .divider .rule,
+.quick-book .qb-rule span{background:var(--gold);opacity:1}
+.divider .omark{color:var(--gold-text)}
+.bg-obsidian .divider .omark,.on-dark .divider .omark,
+.hero .divider .omark,.banner .divider .omark{color:var(--gold)}
+
+/* Eyebrow / kicker labels: grey → champagne */
+.meta{color:var(--gold-text)}
+.bg-obsidian .meta,.on-dark .meta,.quick-book .meta{color:var(--gold)}
+.hero .eyebrow,.banner:not(.banner--light) .kicker{color:var(--gold)}
+.banner--light .kicker{color:var(--gold-text)}
+.hero-foot{color:var(--gold);opacity:.9}
+
+/* Credentials band + booking facts */
+.stat .cap{color:var(--gold)}
+.qb-facts span{color:var(--gold)}
+.site-footer h4{color:var(--gold)}
+.site-footer .cred-caption .cred-no{color:var(--gold)}
+
+/* Pricing tiers */
+.tier .flag{color:var(--gold-text)}
+.tier--feature .flag{color:var(--gold)}
+.tier .from{color:var(--gold-text)}
+.tier--feature .from{color:var(--gold)}
+.benefits h4{color:var(--gold-text)}
+
+/* Supporting labels and rules */
+.col h3::after{content:"";display:block;width:26px;height:1px;background:var(--gold);margin-top:14px}
+.member .role{color:var(--gold-text)}
+.quote .who{color:var(--gold)}
+.quote:nth-child(1) .who{color:var(--gold-text)}
+.quote--rating .r-label{color:var(--gold)}
+.marques{color:var(--gold-text)}
+.legal .legal-h{border-top-color:var(--gold);border-top-width:1px}
+.legal th{color:var(--gold-text)}
+.quick-book .field label,.formpanel .field label{color:var(--gold)}
+.formpanel .field label{color:var(--gold-text)}
+.qb-success .meta{color:var(--gold)}
+
+/* Gold hairlines on the cards that frame content */
+.benefits{border-color:rgba(198,169,114,.45)}
+.tier{border-color:rgba(198,169,114,.40)}
+.tier--feature{border-color:rgba(198,169,114,.55)}
+.notice{border-color:var(--gold)}
+.step{border-top-color:rgba(198,169,114,.55)}
+.bg-obsidian .step{border-top-color:rgba(198,169,114,.45)}
+.col{border-top-color:rgba(198,169,114,.55)}
+.qb-facts,.qb-facts li{border-color:rgba(198,169,114,.30)}
+.cred-rule{background:rgba(198,169,114,.5)}
+
+/* Mobile call bar: champagne icons read against the obsidian */
+.callbar svg{color:var(--gold)}
+
+/* Champagne and grey on light backgrounds: deepened just enough to clear
+   WCAG AA (4.5:1) on ivory AND the darker ivory-alt sections. Reads richer,
+   not greyer — higher contrast is also more visible, which is the point. */
+:root{ --gold-text:#816225; --subtle:#666669; }
+
 
 .pic-01{--img:url("/assets/img/eutopia-01.webp")}
 .pic-02{--img:url("/assets/img/eutopia-02.webp")}
