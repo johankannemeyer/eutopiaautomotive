@@ -982,6 +982,10 @@ body[style*="overflow: hidden"] .floaters{display:none}
 .banner .pic-27 + .veil{background:linear-gradient(180deg,rgba(11,11,12,.76) 0%,rgba(11,11,12,.66) 50%,rgba(11,11,12,.86) 100%)}
 .split .pic-28::before{background-position:center 55%}
 
+.hero .pic-29::before{background-position:38% center}
+.split .pic-02::before{background-position:center 45%}
+.split .pic-15::before{background-position:70% center}
+
 
 .pic-01{--img:url("/assets/img/eutopia-01.webp")}
 .pic-02{--img:url("/assets/img/eutopia-02.webp")}
@@ -1008,4 +1012,4 @@ body[style*="overflow: hidden"] .floaters{display:none}
 .pic-25{--img:url("/assets/img/eutopia-25.webp")}
 .pic-26{--img:url("/assets/img/eutopia-26.webp")}
 .pic-27{--img:url("/assets/img/eutopia-27.webp")}
-.pic-28{--img:url("/assets/img/eutopia-28.webp")}
+.pic-29{--img:url("/assets/img/eutopia-29.webp")}
