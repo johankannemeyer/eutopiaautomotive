@@ -227,6 +227,73 @@
     });
   })();
 
+  /* ---------- Booking form: validate, submit to /api/booking, show receipt ---------- */
+  (function(){
+    var form = document.getElementById('bookingForm'); if (!form) return;
+    var panel = document.getElementById('bookingSuccess');
+    var btn = form.querySelector('button[type="submit"]'), btnText = btn.textContent;
+    var status = form.querySelector('.form-status');
+    var stamp = function(){ form.elements.t.value = String(Date.now()); };
+    stamp();
+    var preview = !/^https?:$/.test(location.protocol) || /claude\.ai|claudeusercontent|anthropic/i.test(location.hostname);
+    var LABELS = {first_name:'first name', email:'email address', mobile:'mobile number'};
+
+    function setError(name, msg){
+      var el = document.getElementById('err-' + name), input = form.elements[name];
+      if (el) el.textContent = msg || '';
+      if (input){ var f = input.closest('.field'); if (f) f.classList.toggle('invalid', !!msg);
+        if (msg) input.setAttribute('aria-invalid','true'); else input.removeAttribute('aria-invalid'); }
+    }
+    function clearErrors(){ ['first_name','last_name','email','mobile','make','model','year','service','message'].forEach(function(n){ setError(n,''); }); status.textContent=''; }
+    function check(d){
+      var e = {};
+      ['first_name','email','mobile'].forEach(function(n){ if(!d[n] || !d[n].trim()) e[n] = 'Please enter your ' + LABELS[n] + '.'; });
+      if (!e.email && !/^[^\s@<>()[\]\\,;:"]+@[^\s@<>()[\]\\,;:"]+\.[a-z]{2,}$/i.test(d.email.trim())) e.email = 'Please enter a valid email address.';
+      if (!e.mobile){ var dg = d.mobile.replace(/[^\d]/g,''); if (dg.length < 9 || dg.length > 15) e.mobile = 'Please enter a valid phone number.'; }
+      if (d.year && !/^(19[5-9]\d|20\d\d)$/.test(d.year.trim())) e.year = 'Please enter a four-digit year.';
+      return e;
+    }
+    function showErrors(e){
+      var first = null;
+      Object.keys(e).forEach(function(n){ setError(n, e[n]); if (!first) first = n; });
+      if (first && form.elements[first]) form.elements[first].focus();
+      status.textContent = 'Please check the highlighted fields.';
+    }
+    function success(res, d, isPreview){
+      var set = function(k, v){ var el = panel.querySelector('[data-s="'+k+'"]'); if (el) el.textContent = v; };
+      set('name', d.first_name.trim()); set('ref', res.reference); set('mobile', d.mobile.trim());
+      set('receipt', res.receiptSent === false
+        ? 'Your request has reached us, but we couldn’t deliver a confirmation email to ' + d.email.trim() + ' — please check the address.'
+        : 'A confirmation with a copy of your request has been sent to ' + d.email.trim() + '. If it isn’t in your inbox in a few minutes, check your spam or promotions folder.');
+      panel.querySelector('[data-s="preview"]').hidden = !isPreview;
+      form.hidden = true; panel.hidden = false;
+      panel.scrollIntoView({block:'center', behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'});
+      setTimeout(function(){ panel.focus({preventScroll:true}); }, 350);
+    }
+    panel.querySelector('[data-s="again"]').addEventListener('click', function(){
+      form.reset(); clearErrors(); stamp(); panel.hidden = true; form.hidden = false; form.elements.first_name.focus();
+    });
+    form.addEventListener('input', function(e){ if (e.target.name) setError(e.target.name, ''); });
+    form.addEventListener('submit', function(ev){
+      ev.preventDefault(); clearErrors();
+      var d = {}; new FormData(form).forEach(function(v, k){ d[k] = typeof v === 'string' ? v : ''; });
+      d.page = location.href;
+      var e = check(d); if (Object.keys(e).length) return showErrors(e);
+      btn.disabled = true; btn.textContent = 'Sending…';
+      var done = function(){ btn.disabled = false; btn.textContent = btnText; };
+      if (preview){ return setTimeout(function(){ done(); success({reference:'EUT-PREVIEW', receiptSent:true}, d, true); }, 800); }
+      fetch('/api/booking', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(d)})
+        .then(function(r){ return r.json().catch(function(){ return {}; }).then(function(j){ return {r:r, j:j}; }); })
+        .then(function(x){
+          done();
+          if (x.r.ok && x.j.ok) return success(x.j, d, false);
+          if (x.j.errors) return showErrors(x.j.errors);
+          status.textContent = x.j.error || 'Something went wrong sending your request. Please call +27 87 265 3684 or WhatsApp 079 670 1967.';
+        })
+        .catch(function(){ done(); status.textContent = 'We couldn’t reach our server. Please check your connection, or call +27 87 265 3684 / WhatsApp 079 670 1967.'; });
+    });
+  })();
+
   /* ---------- Forms are mockups ---------- */
   document.addEventListener('click', function(e){
     var b = e.target.closest('.formpanel .btn');

@@ -1062,6 +1062,27 @@ body[style*="overflow: hidden"] .floaters{display:none}
   .legal tr td:last-child{border-bottom:0}
 }
 
+/* --- Booking form: live states --- */
+.hp{position:absolute!important;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden}
+.field-error{margin:8px 0 0;font-size:13px;line-height:1.4;color:#EBA898;min-height:0}
+.field-error:empty{display:none}
+.quick-book .field.invalid input,.quick-book .field.invalid select,.quick-book .field.invalid textarea{border-bottom-color:#EBA898}
+.form-consent{font-size:13px;color:#8A8A8C;margin:0 0 18px;max-width:60ch}
+.form-consent a{color:#C9C7C2;text-decoration:underline;text-decoration-color:var(--gold);text-underline-offset:3px}
+.form-status{margin:0 0 16px;font-size:15px;color:#EBA898;max-width:60ch}
+.form-status:empty{display:none}
+.qb-form .btn[disabled]{opacity:.6;cursor:progress}
+.qb-success{border:1px solid var(--hairline-dark);padding:48px 44px;background:rgba(11,11,12,.55);color:#C9C7C2;outline:none}
+.qb-success-mark .omark{width:34px;height:31px;color:var(--gold);margin-bottom:22px}
+.qb-success-title{font-family:'Jost',sans-serif;font-weight:200;font-size:clamp(24px,2.6vw,32px);letter-spacing:.14em;color:var(--ivory);margin:0 0 14px;text-transform:uppercase}
+.qb-success-ref{font-family:'Jost',sans-serif;font-weight:300;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:#8A8A8C;margin:0 0 22px}
+.qb-success-ref span{color:var(--ivory);font-size:15px;letter-spacing:.16em;margin-left:8px}
+.qb-success p{font-size:16px;max-width:52ch}
+.qb-success a{color:var(--ivory);text-decoration:underline;text-decoration-color:var(--gold);text-underline-offset:3px}
+.qb-success-preview{font-size:13px!important;color:var(--gold)!important}
+.qb-success .btn{margin-top:10px}
+@media (max-width:820px){ .qb-success{padding:36px 26px} }
+
 
 .pic-01{--img:url("/assets/img/eutopia-01.webp")}
 .pic-02{--img:url("/assets/img/eutopia-02.webp")}

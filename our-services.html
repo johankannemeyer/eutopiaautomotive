@@ -30,7 +30,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400&family=Mulish:wght@300;400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/site.css?v=e84461a7d0">
+<link rel="stylesheet" href="/assets/css/site.css?v=e6c9481f1d">
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -495,38 +495,43 @@
         </ul>
       </div>
 
-      <form class="qb-form rv" novalidate onsubmit="return false">
+      <form class="qb-form rv" id="bookingForm" action="/api/booking" method="post" novalidate>
+        <div class="hp" aria-hidden="true"><label>Company <input type="text" name="company" tabindex="-1" autocomplete="off"></label></div>
+        <input type="hidden" name="t" value="">
         <div class="fgrid">
-          <div class="field"><label>First Name <span class="req" aria-hidden="true">*</span></label><input type="text" required autocomplete="given-name"></div>
-          <div class="field"><label>Last Name</label><input type="text" autocomplete="family-name"></div>
-          <div class="field"><label>Email <span class="req" aria-hidden="true">*</span></label><input type="email" required autocomplete="email"></div>
-          <div class="field"><label>Mobile <span class="req" aria-hidden="true">*</span></label><input type="tel" required autocomplete="tel"></div>
+          <div class="field"><label for="bk-first_name">First Name <span class="req" aria-hidden="true">*</span></label><input type="text" name="first_name" id="bk-first_name" aria-describedby="err-first_name" required autocomplete="given-name"><p class="field-error" id="err-first_name"></p></div>
+          <div class="field"><label for="bk-last_name">Last Name</label><input type="text" name="last_name" id="bk-last_name" aria-describedby="err-last_name" autocomplete="family-name"><p class="field-error" id="err-last_name"></p></div>
+          <div class="field"><label for="bk-email">Email <span class="req" aria-hidden="true">*</span></label><input type="email" name="email" id="bk-email" aria-describedby="err-email" required autocomplete="email"><p class="field-error" id="err-email"></p></div>
+          <div class="field"><label for="bk-mobile">Mobile <span class="req" aria-hidden="true">*</span></label><input type="tel" name="mobile" id="bk-mobile" aria-describedby="err-mobile" required autocomplete="tel"><p class="field-error" id="err-mobile"></p></div>
         </div>
         <div class="fgrid fgrid--3">
-          <div class="field"><label>Vehicle Make</label><input type="text"></div>
-          <div class="field"><label>Model</label><input type="text"></div>
-          <div class="field"><label>Year</label><input type="text" inputmode="numeric" maxlength="4"></div>
+          <div class="field"><label for="bk-make">Vehicle Make</label><input type="text" name="make" id="bk-make" aria-describedby="err-make"><p class="field-error" id="err-make"></p></div>
+          <div class="field"><label for="bk-model">Model</label><input type="text" name="model" id="bk-model" aria-describedby="err-model"><p class="field-error" id="err-model"></p></div>
+          <div class="field"><label for="bk-year">Year</label><input type="text" name="year" id="bk-year" aria-describedby="err-year" inputmode="numeric" maxlength="4"><p class="field-error" id="err-year"></p></div>
         </div>
         <div class="fgrid">
-          <div class="field field--full"><label>Service Required</label>
-            <select>
-              <option value="">Select a service</option>
-              <option>Minor Service — from R850</option>
-              <option>Major Service — from R1 980</option>
-              <option>Executive Service — from R4 250</option>
-              <option>Repair or fault</option>
-              <option>Diagnostics</option>
-              <option>Overnight service</option>
-              <option>Something else</option>
-            </select>
-          </div>
-          <div class="field field--full"><label>Message</label><textarea rows="3"></textarea></div>
+          <div class="field field--full"><label for="bk-service">Service Required</label><select name="service" id="bk-service" aria-describedby="err-service"><option value="">Select a service</option><option>Minor Service — from R850</option><option>Major Service — from R1 980</option><option>Executive Service — from R4 250</option><option>Repair or fault</option><option>Diagnostics</option><option>Overnight service</option><option>Something else</option></select><p class="field-error" id="err-service"></p></div>
+          <div class="field field--full"><label for="bk-message">Message</label><textarea name="message" id="bk-message" aria-describedby="err-message" rows="3"></textarea><p class="field-error" id="err-message"></p></div>
         </div>
+        <p class="form-consent">By sending this form you agree to our <a href="/privacy-policy">Privacy Policy</a>. We use your details only to respond to your booking.</p>
+        <p class="form-status" role="alert" aria-live="assertive"></p>
         <div class="qb-foot">
           <button class="btn btn--light" type="submit">Request Booking</button>
           <p class="small">We reply within one working day.</p>
         </div>
       </form>
+
+      <div class="qb-success" id="bookingSuccess" hidden tabindex="-1" aria-live="polite">
+        <div class="qb-success-mark"><svg class="omark" viewBox="0 0 209 187" aria-hidden="true"><use href="#eut-mark"/></svg></div>
+        <p class="meta" style="color:#9E9C98">Booking request received</p>
+        <h3 class="qb-success-title">Thank you, <span data-s="name"></span>.</h3>
+        <p class="qb-success-ref">Reference <span data-s="ref"></span></p>
+        <p data-s="receipt"></p>
+        <p>One of our team will call you on <strong data-s="mobile"></strong> to confirm a slot — usually the same working day.
+           Need us sooner? Call <a href="tel:+27872653684">+27 87 265 3684</a> or WhatsApp <a href="https://wa.me/27796701967">079 670 1967</a>.</p>
+        <p class="qb-success-preview" data-s="preview" hidden>Preview mode — this demo page doesn't send email. On the live site, both emails are sent.</p>
+        <button type="button" class="btn btn--light" data-s="again">Send another request</button>
+      </div>
     </div>
   </div>
 </section>
@@ -596,6 +601,6 @@
   <a href="https://wa.me/27796701967?text=Hi%20EUTOPIA%20Automotive%2C%20I%27d%20like%20to%20book%20my%20vehicle%20in." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a9 9 0 0 1-13.4 7.8L3 21l1.3-4.4A9 9 0 1 1 21 12z"/></svg>WhatsApp</a>
 </nav>
 
-<script src="/assets/js/site.js?v=4f2129724f"></script>
+<script src="/assets/js/site.js?v=bc2fe8c3e7"></script>
 </body>
 </html>
