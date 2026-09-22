@@ -80,7 +80,8 @@ body = src[src.index('<body>')+6 : src.rindex('</body>')]
 
 styles = re.findall(r'<style[^>]*>(.*?)</style>', head, re.S)
 css = '\n'.join(styles)
-fonts = '\n'.join(re.findall(r'<link rel="(?:preconnect|stylesheet)"[^>]*>', head))
+fonts = '\n'.join(re.findall(r'<link\b[^>]*fonts\.(?:googleapis|gstatic)\.com[^>]*>', head))
+assert 'css2?family=Jost' in fonts, 'Google Fonts stylesheet link missing from build'
 
 script = re.findall(r'<script>(.*?)</script>', body, re.S)[-1]
 body_wo_script = body[:body.rindex('<script>')]
