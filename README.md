@@ -29,8 +29,7 @@ change them there so the schema, llms.txt and pricing.md stay in sync with the p
 - Confirm the domain: canonicals, sitemap and schema assume `https://www.eutopiaautomotive.co.za`
   (change `DOMAIN` in `tools/build.py`, rebuild).
 - Booking forms are front-end only — wire them to email or a form service.
-- Five legacy photos are still linked from totalmotorcare.co.za. Download them into `assets/img/` and update
-  `src/prototype.html` BEFORE the old site is taken down.
+- All imagery is hosted locally in `assets/img/` — nothing depends on the old site.
 - The two turbo images (eutopia-11, eutopia-12) show 'BILSTEIN' lettering — replace when possible.
 - Submit `sitemap.xml` in Google Search Console and Bing Webmaster Tools; rename the Google Business Profile
   to EUTOPIA Automotive and set its website to the new domain.

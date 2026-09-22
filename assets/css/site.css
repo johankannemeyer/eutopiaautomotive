@@ -966,6 +966,18 @@ body[style*="overflow: hidden"] .floaters{display:none}
 .tile .pic-12::before{background-position:30% center}
 .split .pic-16::before{background-position:62% center}
 
+/* Repairs tab panels: a full-width image above the copy and the checklist */
+.panel-media{grid-column:1/-1;position:relative;aspect-ratio:21/8;overflow:hidden}
+.panel-media .photo{position:absolute;inset:0}
+.panel.active{row-gap:44px}
+.panel-media .pic-18::before{background-position:center 55%}
+.panel-media .pic-20::before{background-position:center 40%}
+.panel-media .pic-19::before{background-position:center 45%}
+.banner .pic-24::before{background-position:center 40%}
+.banner .pic-17::before{background-position:center 45%}
+.banner .pic-17 + .veil,.banner .pic-24 + .veil{background:linear-gradient(180deg,rgba(11,11,12,.70) 0%,rgba(11,11,12,.58) 50%,rgba(11,11,12,.84) 100%)}
+@media (max-width:820px){ .panel-media{aspect-ratio:16/9} .panel.active{row-gap:32px} }
+
 
 .pic-01{--img:url("/assets/img/eutopia-01.webp")}
 .pic-02{--img:url("/assets/img/eutopia-02.webp")}
@@ -983,3 +995,13 @@ body[style*="overflow: hidden"] .floaters{display:none}
 .pic-14{--img:url("/assets/img/eutopia-14.webp")}
 .pic-15{--img:url("/assets/img/eutopia-15.webp")}
 .pic-16{--img:url("/assets/img/eutopia-16.webp")}
+.pic-17{--img:url("/assets/img/eutopia-17.webp")}
+.pic-18{--img:url("/assets/img/eutopia-18.webp")}
+.pic-19{--img:url("/assets/img/eutopia-19.webp")}
+.pic-20{--img:url("/assets/img/eutopia-20.webp")}
+.pic-21{--img:url("/assets/img/eutopia-21.webp")}
+.pic-22{--img:url("/assets/img/eutopia-22.webp")}
+.pic-23{--img:url("/assets/img/eutopia-23.webp")}
+.pic-24{--img:url("/assets/img/eutopia-24.webp")}
+.pic-25{--img:url("/assets/img/eutopia-25.webp")}
+.pic-26{--img:url("/assets/img/eutopia-26.webp")}
