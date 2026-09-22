@@ -1063,6 +1063,36 @@ body[style*="overflow: hidden"] .floaters{display:none}
   .fgrid{grid-template-columns:minmax(0,1fr)}
   .fgrid--3{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
+
+/* Legal pages: readable long-form text, section headings, responsive table */
+.legal .legal-h{font-family:'Jost',sans-serif;font-weight:300;font-size:clamp(17px,1.6vw,19px);letter-spacing:.12em;
+  text-transform:uppercase;color:var(--obsidian);margin:56px 0 18px;padding-top:28px;border-top:1px solid var(--hairline);line-height:1.5}
+.legal h4{font-family:'Jost',sans-serif;font-weight:300;font-size:14px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--graphite);margin:32px 0 12px}
+.legal > p:first-child{font-family:'Jost',sans-serif;font-weight:300;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--subtle)}
+.legal p,.legal li{font-size:16px;line-height:1.8;color:var(--graphite)}
+.legal ul,.legal ol{padding-left:22px;margin:0 0 20px}
+.legal li{margin-bottom:10px}
+.legal strong{font-weight:600;color:var(--obsidian)}
+.legal a{color:var(--obsidian);text-decoration:underline;text-decoration-color:var(--gold);text-underline-offset:3px;word-break:break-word}
+.legal .table-wrap{overflow-x:auto;margin:8px 0 24px;border:1px solid var(--hairline);-webkit-overflow-scrolling:touch}
+.legal table{width:100%;min-width:600px;border-collapse:collapse;font-size:14px;background:var(--white)}
+.legal th,.legal td{text-align:left;vertical-align:top;padding:14px 16px;border-bottom:1px solid var(--hairline);line-height:1.6}
+.legal th{font-family:'Jost',sans-serif;font-weight:300;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--subtle);background:var(--ivory-alt)}
+.legal tr:last-child td{border-bottom:0}
+
+/* Phones: each table row becomes a stacked card instead of a sideways scroll */
+@media (max-width:640px){
+  .legal .table-wrap{overflow:visible;border:0}
+  .legal table{min-width:0;background:transparent}
+  .legal thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+  .legal table,.legal tbody,.legal tr,.legal td{display:block;width:100%}
+  .legal tr{background:var(--white);border:1px solid var(--hairline);margin-bottom:14px}
+  .legal td{border-bottom:1px solid var(--hairline);padding:12px 16px}
+  .legal td::before{content:attr(data-label);display:block;margin-bottom:4px;font-family:'Jost',sans-serif;font-weight:300;
+    font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--subtle)}
+  .legal tr td:last-child{border-bottom:0}
+}
 </style>
 <script type="application/ld+json">
 {
@@ -2048,19 +2078,79 @@ body[style*="overflow: hidden"] .floaters{display:none}
   </section>
   <section class="bg-ivory" style="padding-top:40px">
     <div class="wrap narrow legal">
-      <p class="small rv"><em>Placeholder — the existing Total Motor Care terms carry over, rebranded. Have the client's legal wording confirmed under the new entity name before launch.</em></p>
-      <h3 class="rv">1. Scope of work</h3>
-      <p class="rv">All work is carried out on the basis of the written quotation provided after inspection. Additional work identified during a repair is quoted separately and only proceeds on your approval.</p>
-      <h3 class="rv">2. Quotations and estimates</h3>
-      <p class="rv">Quotations are valid for the period stated and are based on the condition of the vehicle at the time of inspection. Where a fault cannot be established without dismantling, a diagnostic fee applies and is disclosed in advance.</p>
-      <h3 class="rv">3. Parts and warranty</h3>
-      <p class="rv">Parts are supplied with the manufacturer's warranty where applicable. Workmanship is warranted for the period stated on your invoice. Replaced components are available for inspection on request.</p>
-      <h3 class="rv">4. Payment</h3>
-      <p class="rv">Payment is due on collection unless a written account arrangement is in place. Vehicles are released once payment reflects.</p>
-      <h3 class="rv">5. Collection and storage</h3>
-      <p class="rv">Vehicles not collected within the period stated on the invoice may attract a storage fee. We will always attempt to make contact before any such charge applies.</p>
-      <h3 class="rv">6. Liability</h3>
-      <p class="rv">Every reasonable care is taken with vehicles and their contents. Valuables should be removed before a vehicle is left with us.</p>
+<p><strong>Last Updated:</strong> September 2026</p>
+<p>Welcome to the website of <strong>EUTOPIA Automotive</strong> ("we," "us," or "our"). These Terms and Conditions ("Terms") govern your use of our website, booking request forms, and the vehicle servicing and repair services we provide. </p>
+<p>By accessing our website or requesting a service booking with us, you agree to be bound by these Terms, as well as our Privacy Policy. If you do not agree with any part of these Terms, please do not use our site or services.</p>
+
+<h2 class="legal-h">1. Company Information</h2>
+<ul>
+<li><strong>Business Name:</strong> EUTOPIA Automotive</li>
+<li><strong>Physical Address:</strong> Unit 6, 1 Printers Way, Montague Gardens, Cape Town, 7441, South Africa</li>
+<li><strong>Contact Email:</strong> <a href="mailto:bookings@eutopiaautomotive.co.za">bookings@eutopiaautomotive.co.za</a></li>
+<li><strong>Contact Phone:</strong> +27 87 265 3684 (WhatsApp: 079 670 1967)</li>
+<li><strong>Applicable Jurisdiction:</strong> Republic of South Africa</li>
+</ul>
+
+<h2 class="legal-h">2. Website Use and Booking Requests</h2>
+<ol>
+<li><strong>Information Accuracy:</strong> While we endeavor to keep all information on this website accurate and up to date, pricing, service descriptions, and availability are subject to change without notice.</li>
+<li><strong>Booking Requests:</strong> Submitting a "Request Booking" form through our website does not constitute a confirmed appointment or a binding contract. A binding appointment is only formed once our team contacts you directly to confirm date, time, and service availability.</li>
+<li><strong>Age Requirement:</strong> By submitting a request through our website, you warrant that you are at least 18 years old or have legal capacity to enter into binding contracts in South Africa.</li>
+</ol>
+
+<h2 class="legal-h">3. Estimates, Quotes, and Work Authorisation</h2>
+<ol>
+<li><strong>Initial Estimates:</strong> Any pricing mentioned online or via initial inquiries is an estimate based on information provided by you (Make, Model, Year, reported issues).</li>
+<li><strong>Detailed Inspection &amp; Quotations:</strong> Upon vehicle inspection at our workshop, a formal quotation will be provided for required parts and labor. No additional or work outside the initial quote will be performed without prior customer approval (written, electronic, or verbal).</li>
+<li><strong>Consumer Protection Act (CPA):</strong> In compliance with Section 15 of the South African Consumer Protection Act 68 of 2008, you have the right to request a pre-estimate of costs prior to any diagnostic or repair work being undertaken.</li>
+</ol>
+
+<h2 class="legal-h">4. Payment Terms &amp; Storage Fees</h2>
+<ol>
+<li><strong>Payment Due Date:</strong> Full payment for all parts, labor, diagnostics, and VAT is due prior to or upon collection of the vehicle, unless alternative written payment terms have been agreed upon in advance.</li>
+<li><strong>Accepted Payment Methods:</strong> Payments can be made via EFT, credit/debit cards, or cash at our premises. Vehicle release is subject to clear payment receipt.</li>
+<li><strong>Storage Charges:</strong> Vehicles must be collected promptly once we notify you that the service or repair is complete. Vehicles left uncollected beyond the collection period stated on your invoice may attract a daily storage fee, which will be communicated to you in advance.</li>
+<li><strong>Lien on Vehicles:</strong> In accordance with South African common law, EUTOPIA Automotive exercises a general lien over any vehicle in our possession until all outstanding fees for work performed are paid in full.</li>
+</ol>
+
+<h2 class="legal-h">5. Warranties on Repairs and Parts</h2>
+<ol>
+<li><strong>Workmanship Warranty:</strong> We guarantee our workmanship for the warranty period stated on your invoice, calculated from the date of invoice.</li>
+<li><strong>Parts Warranty:</strong> New replacement parts are covered by the manufacturer's warranty, usually in accordance with the Consumer Protection Act (6-month implied warranty for defective goods).</li>
+<li><strong>Exclusions:</strong> Warranties do not cover damage resulting from failure due to third-party interference, customer negligence, racing, off-road misuse, unauthorized modifications, or normal wear and tear.</li>
+</ol>
+
+<h2 class="legal-h">6. Vehicle Drop-off, Valuables &amp; Driving Permission</h2>
+<ol>
+<li><strong>Personal Belongings:</strong> Customers are strongly advised to remove all cash, electronic devices, personal items, and valuables from the vehicle prior to handing it over. EUTOPIA Automotive accepts no liability for loss or theft of personal items left inside the vehicle.</li>
+<li><strong>Test Driving Authorisation:</strong> By leaving your vehicle with us for servicing or repairs, you grant our qualified technicians permission to drive the vehicle on public roads as necessary for diagnostic testing, quality checks, and performance evaluation.</li>
+</ol>
+
+<h2 class="legal-h">7. Intellectual Property &amp; Digital Content</h2>
+<p>All text, images, logos, graphics, and layout on this website are the property of EUTOPIA Automotive and are protected under South African intellectual property laws. Unauthorised reproduction, copying, or redistribution of site content is strictly prohibited.</p>
+
+<h2 class="legal-h">8. Third-Party Links &amp; Cookies</h2>
+<p>Our website uses third-party cookies (including Google and Meta/Facebook advertising tools) to deliver relevant ad content and analyze traffic. By using our website, you acknowledge our use of these tools as detailed in our <a href="#/privacy">Privacy Policy</a>. We are not responsible for the privacy practices or content of third-party websites linked from our site.</p>
+
+<h2 class="legal-h">9. Limitation of Liability</h2>
+<p>To the maximum extent permitted under South African law (including the CPA):
+* EUTOPIA Automotive shall not be liable for any indirect, incidental, or consequential damages resulting from the use of our website or services.
+* While every reasonable precaution is taken to safeguard vehicles on our premises, vehicle storage and service drop-offs remain at the owner's risk regarding events beyond reasonable control (such as acts of nature or armed robbery), subject to applicable consumer protection legislation.</p>
+
+<h2 class="legal-h">10. Governing Law &amp; Dispute Resolution</h2>
+<ol>
+<li><strong>Governing Law:</strong> These Terms are governed by and construed in accordance with the laws of the Republic of South Africa.</li>
+<li><strong>Dispute Resolution:</strong> In the event of a dispute arising from a repair or transaction, the parties agree to first seek informal resolution directly. If unresolved, disputes may be referred to the relevant Automotive Ombudsman (MIOSA) or the South African National Consumer Commission (NCC) where applicable.</li>
+</ol>
+
+<h2 class="legal-h">11. Amendments to Terms</h2>
+<p>We reserve the right to modify or update these Terms at any time without prior notice. Any changes will be posted on this page with an updated "Last Updated" date. Continued use of our website or services constitutes acceptance of the modified Terms.</p>
+
+<h2 class="legal-h">12. Contact Us</h2>
+<p>If you have any questions regarding these Terms and Conditions, please reach out to us at:
+* <strong>Email:</strong> <a href="mailto:bookings@eutopiaautomotive.co.za">bookings@eutopiaautomotive.co.za</a>
+* <strong>Phone:</strong> +27 87 265 3684 (WhatsApp: 079 670 1967)
+* <strong>Address:</strong> Unit 6, 1 Printers Way, Montague Gardens, Cape Town, 7441, South Africa</p>
     </div>
   </section>
 </div>
@@ -2077,19 +2167,144 @@ body[style*="overflow: hidden"] .floaters{display:none}
   </section>
   <section class="bg-ivory" style="padding-top:40px">
     <div class="wrap narrow legal">
-      <p class="small rv"><em>Placeholder — POPIA-aligned wording to be confirmed by the client. Check that the data controller named is the new entity, not Total Motor Care.</em></p>
-      <h3 class="rv">Information we collect</h3>
-      <p class="rv">We collect the details you provide through our booking and enquiry forms: your name, contact details and vehicle information. We collect this only to respond to your enquiry and to service your vehicle.</p>
-      <h3 class="rv">How we use it</h3>
-      <p class="rv">Your information is used to prepare quotations, carry out work, maintain your service history and contact you about your vehicle. We do not sell your information to anyone.</p>
-      <h3 class="rv">Marketing</h3>
-      <p class="rv">We will only send you service reminders or offers if you have opted in. You can opt out at any time by replying to any message or contacting us directly.</p>
-      <h3 class="rv">Retention</h3>
-      <p class="rv">Service records are retained for as long as is necessary to maintain your vehicle's history and to meet our legal obligations.</p>
-      <h3 class="rv">Your rights</h3>
-      <p class="rv">Under POPIA you may request access to the personal information we hold about you, ask us to correct it, or ask us to delete it where we are not required to retain it.</p>
-      <h3 class="rv">Contact</h3>
-      <p class="rv">For any privacy query, contact us on bookings@eutopiaautomotive.co.za.</p>
+<p><strong>Last Updated:</strong> September 2026</p>
+<p>This Privacy Policy describes how <strong>EUTOPIA Automotive</strong> ("we," "us," or "our") collects, uses, discloses, and protects your personal information on our website and digital channels in compliance with the <strong>Protection of Personal Information Act 4 of 2013 (POPIA)</strong> and other applicable South African privacy laws.</p>
+<p>By using our website, submitting booking requests, or interacting with our digital ads, you acknowledge the processing of your personal information as set out in this policy.</p>
+<h2 class="legal-h">1. Responsible Party Details</h2>
+<ul>
+<li>
+<p><strong>Business Name:</strong> EUTOPIA Automotive</p>
+</li>
+<li>
+<p><strong>Physical Address:</strong> Unit 6, 1 Printers Way, Montague Gardens, Cape Town, 7441, South Africa</p>
+</li>
+<li>
+<p><strong>Contact Email:</strong> <a href="mailto:bookings@eutopiaautomotive.co.za">bookings@eutopiaautomotive.co.za</a></p>
+</li>
+<li>
+<p><strong>Contact Phone:</strong> +27 87 265 3684 (WhatsApp: 079 670 1967)</p>
+</li>
+</ul>
+<h2 class="legal-h">2. Personal Information We Collect</h2>
+<p>We only collect basic personal and minimal vehicle details necessary to respond to service inquiries, arrange bookings, and conduct targeted digital marketing.</p>
+<h4>A. Information You Provide Directly</h4>
+<p>When you fill out our online booking request form, we collect:</p>
+<ul>
+<li>
+<p><strong>Contact Details:</strong> First name, last name, email address, and mobile phone number.</p>
+</li>
+<li>
+<p><strong>Basic Vehicle Information:</strong> Vehicle make, model, and year.</p>
+</li>
+<li>
+<p><strong>Service Details:</strong> Selected service required and any optional message or inquiry details you provide.</p>
+</li>
+</ul>
+<h4>B. Information Collected Automatically (Cookies &amp; Tracking Pixels)</h4>
+<p>When you navigate our website, we automatically collect non-personally identifiable and behavioral data using tracking technologies:</p>
+<ul>
+<li>
+<p><strong>Digital Identifiers:</strong> IP address, browser type, device information, and geographic location region.</p>
+</li>
+<li>
+<p><strong>Browsing Activity:</strong> Pages viewed, links clicked, time spent on pages, and referral URLs.</p>
+</li>
+</ul>
+<h2 class="legal-h">3. Digital Advertising, Retargeting &amp; Cookies</h2>
+<p>Our website uses third-party tracking tools to optimize marketing and deliver relevant advertising:</p>
+<ul>
+<li>
+<p><strong>Meta Pixel (Facebook Advertising):</strong> We use Meta/Facebook Pixel to measure the effectiveness of our ad campaigns and build custom audiences for retargeting. Meta may place cookies on your device to show you targeted ads based on your visit to our site.</p>
+</li>
+<li>
+<p><strong>Google Ads &amp; Tag Manager:</strong> We use Google advertising cookies to run search and display ads, track online conversions, and remarket to users who have previously visited our site.</p>
+</li>
+<li>
+<p><strong>Analytics Cookies:</strong> We use web analytics cookies to monitor traffic trends and improve site functionality.</p>
+</li>
+</ul>
+<p><strong>Managing Cookies:</strong> You can disable or delete cookies via your web browser settings. Disabling cookies will not prevent you from using our online booking request form.</p>
+<h2 class="legal-h">4. Purpose and Legal Basis for Processing</h2>
+<p>We process your personal information under the following legal grounds provided by POPIA:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Processing Purpose</th>
+<th>Data Categories</th>
+<th>Legal Basis (POPIA)</th>
+</tr>
+</thead>
+<tbody>
+<tr><td data-label="Processing Purpose"><strong>Booking &amp; Inquiry Handling:</strong> Processing your request, verifying details, and contacting you to confirm appointments.</td><td data-label="Data Categories">Name, Mobile, Email, Basic Vehicle Info (Make/Model/Year)</td><td data-label="Legal Basis (POPIA)">Performance of a Pre-contractual Step / Contract</td></tr>
+<tr><td data-label="Processing Purpose"><strong>Direct Customer Communication:</strong> Sending booking confirmations, status updates, or responses via phone, SMS, or email.</td><td data-label="Data Categories">Contact Data</td><td data-label="Legal Basis (POPIA)">Legitimate Interest / Performance of a Contract</td></tr>
+<tr><td data-label="Processing Purpose"><strong>Targeted Advertising &amp; Remarketing:</strong> Delivering relevant advertising across Google, Facebook, and Instagram.</td><td data-label="Data Categories">Digital Identifiers, Cookie Data</td><td data-label="Legal Basis (POPIA)">Consent (Cookie Accept) / Legitimate Interest</td></tr>
+<tr><td data-label="Processing Purpose"><strong>Website Optimization &amp; Security:</strong> Monitoring traffic, preventing fraud, and ensuring web platform stability.</td><td data-label="Data Categories">Technical Usage Data, IP Address</td><td data-label="Legal Basis (POPIA)">Legitimate Interest</td></tr>
+</tbody>
+</table></div>
+<h2 class="legal-h">5. Third-Party Data Sharing</h2>
+<p>We do not sell, rent, or trade your personal information. We share data only with service providers under strict privacy obligations:</p>
+<ul>
+<li>
+<p><strong>Digital Advertising Partners:</strong> Google LLC and Meta Platforms Inc., to execute retargeting and ad measurement.</p>
+</li>
+<li>
+<p><strong>IT &amp; Web Hosting Providers:</strong> Third parties hosting our website infrastructure, servers, and form submission databases.</p>
+</li>
+<li>
+<p><strong>Communication Service Providers:</strong> Platforms used to route email alerts, SMS notifications, or customer service messaging.</p>
+</li>
+<li>
+<p><strong>Legal Authorities:</strong> Where required by South African law or court order.</p>
+</li>
+</ul>
+<h2 class="legal-h">6. Cross-Border Data Transfers</h2>
+<p>Because Google and Meta operate global network infrastructure, certain cookie identifiers or ad telemetry data may be processed on servers located outside South Africa. In accordance with Section 72 of POPIA, we ensure these transfers occur under data protection standards that match or exceed South African legal requirements.</p>
+<h2 class="legal-h">7. Data Retention &amp; Security</h2>
+<ul>
+<li>
+<p><strong>Data Safeguards:</strong> We implement technical measures (such as SSL encryption and restricted system access) to safeguard your information from unauthorized access, loss, or theft.</p>
+</li>
+<li>
+<p><strong>Retention:</strong> Booking request details are retained only for as long as necessary to complete the service interaction, maintain transaction history, or fulfill legal obligations.</p>
+</li>
+</ul>
+<h2 class="legal-h">8. Your Rights under POPIA</h2>
+<p>In terms of POPIA, you have the following rights regarding your personal information:</p>
+<ul>
+<li>
+<p><strong>Right to Access:</strong> Request confirmation of whether we hold personal information about you.</p>
+</li>
+<li>
+<p><strong>Right to Correction/Deletion:</strong> Request the correction, updating, or deletion of inaccurate or outdated information.</p>
+</li>
+<li>
+<p><strong>Right to Object / Opt-Out:</strong> Object to processing for direct marketing or opt-out of personalized advertising cookies at any time.</p>
+</li>
+</ul>
+<h2 class="legal-h">9. Contact Details &amp; Information Regulator</h2>
+<h4>EUTOPIA Automotive Contact</h4>
+<p>For privacy queries or requests regarding your personal data:</p>
+<ul>
+<li>
+<p><strong>Email:</strong> <a href="mailto:bookings@eutopiaautomotive.co.za">bookings@eutopiaautomotive.co.za</a></p>
+</li>
+<li>
+<p><strong>Phone:</strong> +27 87 265 3684 (WhatsApp: 079 670 1967)</p>
+</li>
+</ul>
+<h4>South African Information Regulator</h4>
+<p>You have the right to submit a complaint to the Information Regulator if you believe your privacy rights under POPIA have been infringed:</p>
+<ul>
+<li>
+<p><strong>Website:</strong> <a href="https://inforegulator.org.za/" target="_blank" rel="noopener">https://inforegulator.org.za/</a></p>
+</li>
+<li>
+<p><strong>Complaints Email:</strong> <a href="mailto:POPIAComplaints@inforegulator.org.za">POPIAComplaints@inforegulator.org.za</a></p>
+</li>
+<li>
+<p><strong>General Enquiries:</strong> <a href="mailto:enquiries@inforegulator.org.za">enquiries@inforegulator.org.za</a></p>
+</li>
+</ul>
     </div>
   </section>
 </div>
