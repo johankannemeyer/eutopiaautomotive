@@ -1017,6 +1017,23 @@ body[style*="overflow: hidden"] .floaters{display:none}
 .hero .pic-29::before{background-position:38% center}
 .split .pic-02::before{background-position:center 45%}
 .split .pic-15::before{background-position:70% center}
+
+/* Repairs tabs: photo in its own column beside the copy and checklist,
+   at a size the 1200px source images can fill without softening. */
+.panel.has-media.active{grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  grid-template-areas:"media text" "media list";column-gap:72px;row-gap:28px;align-items:start}
+.panel.has-media .panel-media{grid-area:media;grid-column:auto;aspect-ratio:1/1;max-width:560px;width:100%}
+.panel.has-media > div:not(.panel-media):not(.benefits){grid-area:text}
+.panel.has-media .benefits{grid-area:list}
+.panel.has-media .panel-media .photo.native::before{filter:saturate(.72) contrast(1.02) brightness(.94)}
+@media (max-width:1024px){
+  .panel.has-media.active{grid-template-columns:1fr;grid-template-areas:"media" "text" "list";row-gap:32px}
+  .panel.has-media .panel-media{aspect-ratio:3/2;max-width:none}
+}
+.hero .pic-15::before{background-position:72% center}
+.banner .pic-29::before{background-position:40% center}
+.banner .pic-29 + .veil{background:linear-gradient(180deg,rgba(11,11,12,.72) 0%,rgba(11,11,12,.60) 50%,rgba(11,11,12,.84) 100%)}
+.split .pic-27::before{background-position:35% center}
 </style>
 <script type="application/ld+json">
 {
@@ -1152,7 +1169,7 @@ body[style*="overflow: hidden"] .floaters{display:none}
 <div class="page" id="page-home">
 
   <section class="hero">
-    <div class="photo ph-workshop has-img native pic-29"></div>
+    <div class="photo ph-workshop has-img native pic-15"></div>
     <div class="veil"></div>
     <div class="hero-inner">
       <p class="eyebrow rv">Cape Town · Montague Gardens</p>
@@ -1394,7 +1411,7 @@ body[style*="overflow: hidden"] .floaters{display:none}
 <div class="page" id="page-services">
 
   <section class="banner">
-    <div class="photo ph-bay has-img native pic-27"></div><div class="veil"></div>
+    <div class="photo ph-bay has-img native pic-29"></div><div class="veil"></div>
     <div class="inner">
       <p class="kicker rv">What We Do</p>
       <h1 class="rv">OUR SERVICES</h1>
@@ -1745,7 +1762,7 @@ body[style*="overflow: hidden"] .floaters{display:none}
         <button class="tab" role="tab" data-tab="r5" aria-selected="false" tabindex="-1">Electrical</button>
       </div>
 
-      <div class="panel active" role="tabpanel" tabindex="0" data-panel="r1">
+      <div class="panel active has-media" role="tabpanel" tabindex="0" data-panel="r1">
         <div class="panel-media rv rv-img"><div role="img" aria-label="Technician fitting a brake caliper over a disc" class="photo has-img native pic-20"></div></div>
         <div>
           <h3>BRAKING SYSTEMS</h3>
@@ -1764,7 +1781,7 @@ body[style*="overflow: hidden"] .floaters{display:none}
         </div>
       </div>
 
-      <div class="panel" role="tabpanel" tabindex="0" data-panel="r2">
+      <div class="panel has-media" role="tabpanel" tabindex="0" data-panel="r2">
         <div class="panel-media rv rv-img"><div role="img" aria-label="Coil spring and shock absorber in a wheel arch" class="photo has-img native pic-19"></div></div>
         <div>
           <h3>SUSPENSION &amp; STEERING</h3>
@@ -1783,7 +1800,7 @@ body[style*="overflow: hidden"] .floaters{display:none}
         </div>
       </div>
 
-      <div class="panel" role="tabpanel" tabindex="0" data-panel="r3">
+      <div class="panel has-media" role="tabpanel" tabindex="0" data-panel="r3">
         <div class="panel-media rv rv-img"><div role="img" aria-label="Pistons and connecting rods from an engine rebuild" class="photo has-img native pic-23"></div></div>
         <div>
           <h3>ENGINE REBUILDS</h3>
@@ -1802,7 +1819,7 @@ body[style*="overflow: hidden"] .floaters{display:none}
         </div>
       </div>
 
-      <div class="panel" role="tabpanel" tabindex="0" data-panel="r4">
+      <div class="panel has-media" role="tabpanel" tabindex="0" data-panel="r4">
         <div class="panel-media rv rv-img"><div role="img" aria-label="Technician testing a car air-conditioning system with manifold gauges" class="photo has-img native pic-18"></div></div>
         <div>
           <h3>AIR-CONDITIONING</h3>
@@ -1821,7 +1838,7 @@ body[style*="overflow: hidden"] .floaters{display:none}
         </div>
       </div>
 
-      <div class="panel" role="tabpanel" tabindex="0" data-panel="r5">
+      <div class="panel has-media" role="tabpanel" tabindex="0" data-panel="r5">
         <div class="panel-media rv rv-img"><div role="img" aria-label="Braided copper earth strap on a battery terminal" class="photo has-img native pic-07"></div></div>
         <div>
           <h3>ELECTRICAL &amp; DIAGNOSTICS</h3>
@@ -1877,7 +1894,7 @@ body[style*="overflow: hidden"] .floaters{display:none}
   <section class="bg-alt">
     <div class="wrap">
       <div class="split split--rev">
-        <div class="media rv rv-img"><div role="img" aria-label="Illuminated LED tail light of a car" class="photo ph-hand has-img native pic-15"></div></div>
+        <div class="media rv rv-img"><div role="img" aria-label="Technician setting up a wheel-alignment rig on a car wheel" class="photo ph-hand has-img native pic-27"></div></div>
         <div class="body">
           <p class="tag rv">No Subcontracting</p>
           <h2 class="rv">EVERY REPAIR,<br>START TO FINISH</h2>

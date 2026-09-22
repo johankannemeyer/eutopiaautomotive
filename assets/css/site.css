@@ -986,6 +986,23 @@ body[style*="overflow: hidden"] .floaters{display:none}
 .split .pic-02::before{background-position:center 45%}
 .split .pic-15::before{background-position:70% center}
 
+/* Repairs tabs: photo in its own column beside the copy and checklist,
+   at a size the 1200px source images can fill without softening. */
+.panel.has-media.active{grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  grid-template-areas:"media text" "media list";column-gap:72px;row-gap:28px;align-items:start}
+.panel.has-media .panel-media{grid-area:media;grid-column:auto;aspect-ratio:1/1;max-width:560px;width:100%}
+.panel.has-media > div:not(.panel-media):not(.benefits){grid-area:text}
+.panel.has-media .benefits{grid-area:list}
+.panel.has-media .panel-media .photo.native::before{filter:saturate(.72) contrast(1.02) brightness(.94)}
+@media (max-width:1024px){
+  .panel.has-media.active{grid-template-columns:1fr;grid-template-areas:"media" "text" "list";row-gap:32px}
+  .panel.has-media .panel-media{aspect-ratio:3/2;max-width:none}
+}
+.hero .pic-15::before{background-position:72% center}
+.banner .pic-29::before{background-position:40% center}
+.banner .pic-29 + .veil{background:linear-gradient(180deg,rgba(11,11,12,.72) 0%,rgba(11,11,12,.60) 50%,rgba(11,11,12,.84) 100%)}
+.split .pic-27::before{background-position:35% center}
+
 
 .pic-01{--img:url("/assets/img/eutopia-01.webp")}
 .pic-02{--img:url("/assets/img/eutopia-02.webp")}
